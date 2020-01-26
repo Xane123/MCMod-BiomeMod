@@ -58,7 +58,7 @@ public class MCreatorTwiliumOre extends Elementsnew_biome.ModElement {
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
-			return Collections.singletonList(new ItemStack(MCreatorTwiliumDust.block, (int) (3)));
+			return Collections.singletonList(new ItemStack(MCreatorTwiliumDust.block, (int) (2)));
 		}
 	}
 

@@ -43,7 +43,7 @@
       "value": "EARTH"
     },
     "tickRate": 10,
-    "isReplaceable": true,
+    "isReplaceable": false,
     "isFlammable": false,
     "colorOnMap": "DIRT",
     "creativePickItem": {
@@ -70,7 +70,13 @@
     "inventoryDropWhenDestroyed": true,
     "inventoryComparatorPower": true,
     "inventoryOutSlotIDs": [],
-    "onRandomUpdateEvent": {
+    "onBlockAdded": {
+      "name": "CuteDirtRandomTickUpdateEvent"
+    },
+    "onNeighbourBlockChanges": {
+      "name": "CuteDirtRandomTickUpdateEvent"
+    },
+    "onTickUpdate": {
       "name": "CuteDirtRandomTickUpdateEvent"
     },
     "spawnWorldTypes": [],

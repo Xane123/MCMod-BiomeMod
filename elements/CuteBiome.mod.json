@@ -1,0 +1,85 @@
+{
+  "_fv": 5,
+  "_type": "biome",
+  "definition": {
+    "name": "Cute Biome (placeholder)",
+    "groundBlock": {
+      "value": "CUSTOM:CuteGrass"
+    },
+    "undergroundBlock": {
+      "value": "CUSTOM:CuteDirt"
+    },
+    "generateLakes": true,
+    "treeType": 0,
+    "vanillaTreeType": "Big trees",
+    "minHeight": 7,
+    "spawnVines": false,
+    "treeVines": {
+      "value": ""
+    },
+    "treeStem": {
+      "value": ""
+    },
+    "treeBranch": {
+      "value": ""
+    },
+    "treeFruits": {
+      "value": ""
+    },
+    "customColors": true,
+    "airColor": {
+      "value": -52,
+      "falpha": 0.0
+    },
+    "grassColor": {
+      "value": -103,
+      "falpha": 0.0
+    },
+    "waterColor": {
+      "value": -6710785,
+      "falpha": 0.0
+    },
+    "treesPerChunk": 3,
+    "grassPerChunk": 2,
+    "flowersPerChunk": 12,
+    "mushroomsPerChunk": 1,
+    "bigMushroomsChunk": 1,
+    "sandPathcesPerChunk": 1,
+    "gravelPatchesPerChunk": 0,
+    "reedsPerChunk": 1,
+    "cactiPerChunk": 0,
+    "deadBushesPerChunk": 0,
+    "rainingPossibility": 0.33,
+    "temperature": 0.5,
+    "baseHeight": 0.1,
+    "heightVariation": 0.2,
+    "spawnBiome": true,
+    "biomeWeight": 8,
+    "biomeType": "WARM",
+    "biomeCategory": "PLAINS",
+    "parent": {
+      "value": "forest"
+    },
+    "biomeDictionaryTypes": [
+      "PLAINS",
+      "WET",
+      "MUSHROOM",
+      "MAGICAL",
+      "RIVER"
+    ],
+    "spawnList": [
+      {
+        "value": "EntityCat"
+      },
+      {
+        "value": "EntityChicken"
+      },
+      {
+        "value": "EntityPig"
+      },
+      {
+        "value": "EntitySheep"
+      }
+    ]
+  }
+}

@@ -34,7 +34,7 @@ public class MCreatorCuteDirtRandomTickUpdateEvent extends Elementsnew_biome.Mod
 		if (((world.getLight(new BlockPos((int) x, (int) y, (int) z))) >= 10)) {
 			System.out.println("A cute dirt block had the right conditions to become grass!");
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
-			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), MCreatorCuteGrass.block.getDefaultState(), 3);
+			world.setBlockState(new BlockPos((int) x, (int) (y + 1), (int) z), MCreatorCuteGrass.block.getDefaultState(), 3);
 		}
 	}
 }

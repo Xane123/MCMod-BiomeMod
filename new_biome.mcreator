@@ -240,6 +240,14 @@
           }
         ]
       }
+    },
+    {
+      "name": "CuteBiome",
+      "type": "biome",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
     }
   ],
   "variable_elements": [],
@@ -256,6 +264,7 @@
       "block.new_biome.twiliumore": "Twilium Ore",
       "item.new_biome.twiliumdust": "Twilium",
       "item.new_biome.twiliumpickaxe": "Twilium Pickaxe",
+      "biome.new_biome.cutebiome": "Cute Biome (placeholder)",
       "block.new_biome.twiliumoreblock": "Block of Twilium",
       "item.new_biome.twiliumshovel": "Twilium Shovel",
       "item.new_biome.twiliumarmorbody": "Twilium Chestplate",

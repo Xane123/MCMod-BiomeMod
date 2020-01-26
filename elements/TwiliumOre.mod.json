@@ -33,7 +33,7 @@
     "customDrop": {
       "value": "CUSTOM:TwiliumDust"
     },
-    "dropAmount": 3,
+    "dropAmount": 2,
     "isBeaconBase": false,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
