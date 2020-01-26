@@ -1,0 +1,11 @@
+{
+  "group": "new_biome",
+  "type": "minecraft:smelting",
+  "experience": 1.4,
+  "ingredient": {
+    "item": "new_biome:twiliumore"
+  },
+  "result": {
+    "item": "new_biome:twiliumdust"
+  }
+}

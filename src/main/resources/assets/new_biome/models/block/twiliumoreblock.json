@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "new_biome:blocks/twilium_ore_block",
+    "particle": "new_biome:blocks/twilium_ore_block"
+  }
+}

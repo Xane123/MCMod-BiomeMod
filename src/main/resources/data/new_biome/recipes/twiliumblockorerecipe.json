@@ -1,0 +1,13 @@
+{
+  "group": "new_biome",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "new_biome:twiliumoreblock"
+    }
+  ],
+  "result": {
+    "item": "new_biome:twiliumdust",
+    "count": 9
+  }
+}

@@ -2,12 +2,12 @@
   "_fv": 5,
   "_type": "block",
   "definition": {
-    "texture": "dirt",
-    "textureTop": "grass-top",
-    "textureLeft": "dirt",
-    "textureFront": "grass-side",
-    "textureRight": "grass-side",
-    "textureBack": "grass-side",
+    "texture": "twilium_ore",
+    "textureTop": "",
+    "textureLeft": "",
+    "textureFront": "",
+    "textureRight": "",
+    "textureBack": "",
     "renderType": 11,
     "customModelName": "Single texture",
     "rotationMode": 0,
@@ -20,42 +20,42 @@
     "My": 1.0,
     "Mz": 1.0,
     "faceShape": "SOLID",
-    "name": "Blue-rough Soil",
+    "name": "Twilium Ore",
     "specialInfo": [],
-    "hardness": 1.0,
-    "resistance": 10.0,
+    "hardness": 6.0,
+    "resistance": 8.705505632961241,
     "hasGravity": false,
     "creativeTab": {
       "value": "BUILDING_BLOCKS"
     },
-    "destroyTool": "shovel",
+    "destroyTool": "pickaxe",
     "affectedBySilkTouch": true,
     "customDrop": {
-      "value": ""
+      "value": "CUSTOM:TwiliumDust"
     },
-    "dropAmount": 1,
+    "dropAmount": 3,
     "isBeaconBase": false,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canProvidePower": false,
     "lightOpacity": 255,
     "material": {
-      "value": "EARTH"
+      "value": "ROCK"
     },
     "tickRate": 10,
-    "isReplaceable": true,
+    "isReplaceable": false,
     "isFlammable": false,
-    "colorOnMap": "DIRT",
+    "colorOnMap": "DEFAULT",
     "creativePickItem": {
       "value": ""
     },
     "isNotColidable": false,
     "soundOnStep": {
-      "value": "GROUND"
+      "value": "STONE"
     },
     "luminance": 0.0,
     "unbreakable": false,
-    "breakHarvestLevel": 1,
+    "breakHarvestLevel": 4,
     "spawnParticles": false,
     "particleToSpawn": {
       "value": "EXPLOSION_NORMAL"
@@ -70,19 +70,18 @@
     "inventoryDropWhenDestroyed": true,
     "inventoryComparatorPower": true,
     "inventoryOutSlotIDs": [],
-    "onRandomUpdateEvent": {
-      "name": "CuteDirtRandomTickUpdateEvent"
-    },
-    "spawnWorldTypes": [],
+    "spawnWorldTypes": [
+      "Surface"
+    ],
     "restrictionBiomes": [],
     "blocksToReplace": [
       {
         "value": "Blocks.STONE"
       }
     ],
-    "frequencyPerChunks": 10,
-    "frequencyOnChunk": 16,
-    "minGenerateHeight": 0,
-    "maxGenerateHeight": 64
+    "frequencyPerChunks": 5,
+    "frequencyOnChunk": 3,
+    "minGenerateHeight": 1,
+    "maxGenerateHeight": 33
   }
 }

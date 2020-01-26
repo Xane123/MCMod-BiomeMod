@@ -1,0 +1,45 @@
+{
+  "_fv": 5,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "recipeShapeless": false,
+    "recipeReturnStack": {
+      "value": "CUSTOM:TwiliumArmor.legs"
+    },
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:TwiliumDust"
+      },
+      {
+        "value": "CUSTOM:TwiliumDust"
+      },
+      {
+        "value": "CUSTOM:TwiliumDust"
+      },
+      {
+        "value": "CUSTOM:TwiliumDust"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:TwiliumDust"
+      },
+      {
+        "value": "CUSTOM:TwiliumDust"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:TwiliumDust"
+      }
+    ],
+    "smeltingXPReward": 0.0,
+    "smeltingRetstackSize": 1,
+    "name": "twiliumarmorleggingsrecipe",
+    "namespace": "mod"
+  }
+}

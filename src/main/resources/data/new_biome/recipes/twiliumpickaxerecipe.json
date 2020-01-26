@@ -1,0 +1,30 @@
+{
+  "group": "new_biome",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 ",
+    " 7 "
+  ],
+  "key": {
+    "0": {
+      "item": "new_biome:twiliumdust"
+    },
+    "1": {
+      "item": "new_biome:twiliumdust"
+    },
+    "2": {
+      "item": "new_biome:twiliumdust"
+    },
+    "4": {
+      "item": "minecraft:stick"
+    },
+    "7": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "new_biome:twiliumpickaxe",
+    "count": 1
+  }
+}

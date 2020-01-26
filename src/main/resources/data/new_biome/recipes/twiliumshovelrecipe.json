@@ -1,0 +1,24 @@
+{
+  "group": "new_biome",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "item": "new_biome:twiliumdust"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    },
+    "2": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "new_biome:twiliumshovel",
+    "count": 1
+  }
+}

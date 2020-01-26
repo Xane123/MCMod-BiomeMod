@@ -12,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.BlockItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.Minecraft;
@@ -46,6 +47,11 @@ public class MCreatorCuteDirt extends Elementsnew_biome.ModElement {
 			super(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(1f, 10f).lightValue(0).harvestLevel(1)
 					.harvestTool(ToolType.SHOVEL));
 			setRegistryName("cutedirt");
+		}
+
+		@Override
+		public boolean isReplaceable(BlockState state, BlockItemUseContext context) {
+			return true;
 		}
 
 		@Override

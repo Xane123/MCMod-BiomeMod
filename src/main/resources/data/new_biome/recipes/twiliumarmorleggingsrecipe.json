@@ -1,0 +1,36 @@
+{
+  "group": "new_biome",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "6 8"
+  ],
+  "key": {
+    "0": {
+      "item": "new_biome:twiliumdust"
+    },
+    "1": {
+      "item": "new_biome:twiliumdust"
+    },
+    "2": {
+      "item": "new_biome:twiliumdust"
+    },
+    "3": {
+      "item": "new_biome:twiliumdust"
+    },
+    "5": {
+      "item": "new_biome:twiliumdust"
+    },
+    "6": {
+      "item": "new_biome:twiliumdust"
+    },
+    "8": {
+      "item": "new_biome:twiliumdust"
+    }
+  },
+  "result": {
+    "item": "new_biome:twiliumarmorlegs",
+    "count": 1
+  }
+}
