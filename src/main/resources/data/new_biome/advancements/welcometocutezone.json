@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "new_biome:twiliumdust"
+    },
+    "title": {
+      "translate": "advancements.welcometocutezone.title"
+    },
+    "description": {
+      "translate": "advancements.welcometocutezone.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "welcometocutezone": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "biome": "new_biome:cutebiome"
+      }
+    }
+  },
+  "rewards": {
+    "experience": 1000
+  },
+  "parent": "minecraft:adventure/root"
+}

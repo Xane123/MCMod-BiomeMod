@@ -80,8 +80,12 @@ public class MCreatorTwiliumOre extends Elementsnew_biome.ModElement {
 				boolean blockCriteria = false;
 				if (blockAt.getBlock() == Blocks.STONE.getDefaultState().getBlock())
 					blockCriteria = true;
+				if (blockAt.getBlock() == Blocks.ANDESITE.getDefaultState().getBlock())
+					blockCriteria = true;
+				if (blockAt.getBlock() == Blocks.DIORITE.getDefaultState().getBlock())
+					blockCriteria = true;
 				return blockCriteria;
-			}), block.getDefaultState(), 3), Placement.COUNT_RANGE, new CountRangeConfig(5, 1, 1, 33)));
+			}), block.getDefaultState(), 3), Placement.COUNT_RANGE, new CountRangeConfig(5, 12, 12, 56)));
 		}
 	}
 }

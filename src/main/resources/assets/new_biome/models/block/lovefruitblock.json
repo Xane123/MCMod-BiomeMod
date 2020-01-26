@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "new_biome:blocks/lovefruit_block",
+    "particle": "new_biome:blocks/lovefruit_block"
+  }
+}
