@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "new_biome:twiliumsword"
+    },
+    "title": {
+      "translate": "advancements.pinkfishdestroyadvancement.title"
+    },
+    "description": {
+      "translate": "advancements.pinkfishdestroyadvancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "pinkfishdestroyadvancement": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "new_biome:welcometocutezone"
+}

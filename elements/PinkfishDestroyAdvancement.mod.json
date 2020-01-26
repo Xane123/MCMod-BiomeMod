@@ -1,0 +1,24 @@
+{
+  "_fv": 5,
+  "_type": "achievement",
+  "definition": {
+    "achievementName": "Cute Critter Crumbled!",
+    "achievementDescription": "It was so small, it zipped around, and it REALLY HURT! It was the LITTLE. GIRLY. WORM!",
+    "achievementIcon": {
+      "value": "CUSTOM:TwiliumSword"
+    },
+    "background": "Default",
+    "disableDisplay": false,
+    "showPopup": true,
+    "announceToChat": true,
+    "hideIfNotCompleted": false,
+    "rewardLoot": [],
+    "rewardFunction": "No function",
+    "rewardXP": 1,
+    "achievementType": "task",
+    "parent": {
+      "value": "CUSTOM:WelcomeToCuteZone"
+    },
+    "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"custom_trigger\" x=\"38\" y=\"55\"><next><block type=\"advancement_trigger\" deletable=\"false\"/></next></block></xml>"
+  }
+}

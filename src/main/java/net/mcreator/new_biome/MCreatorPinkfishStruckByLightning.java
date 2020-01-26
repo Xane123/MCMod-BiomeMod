@@ -1,9 +1,7 @@
 package net.mcreator.new_biome;
 
 import net.minecraft.world.World;
-import net.minecraft.entity.monster.SilverfishEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Entity;
 
 @Elementsnew_biome.ModElement.Tag
@@ -39,10 +37,10 @@ public class MCreatorPinkfishStruckByLightning extends Elementsnew_biome.ModElem
 		int z = (int) dependencies.get("z");
 		World world = (World) dependencies.get("world");
 		if (entity instanceof LivingEntity)
-			((LivingEntity) entity).setHealth((float) 15);
+			((LivingEntity) entity).setHealth((float) 30);
 		for (int index0 = 0; index0 < (int) (3); index0++) {
 			if (!world.isRemote) {
-				Entity entityToSpawn = new SilverfishEntity(EntityType.SILVERFISH, world);
+				Entity entityToSpawn = new MCreatorPinkfish.CustomEntity(MCreatorPinkfish.entity, world);
 				entityToSpawn.setLocationAndAngles(x, y, z, world.rand.nextFloat() * 360F, 0);
 				world.addEntity(entityToSpawn);
 			}

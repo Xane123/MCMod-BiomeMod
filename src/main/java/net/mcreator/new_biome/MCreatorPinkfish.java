@@ -20,8 +20,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.monster.CreeperEntity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
@@ -29,7 +28,6 @@ import net.minecraft.entity.ai.goal.PanicGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.EntityType;
@@ -88,7 +86,7 @@ public class MCreatorPinkfish extends Elementsnew_biome.ModElement {
 		});
 	}
 
-	public static class CustomEntity extends MonsterEntity {
+	public static class CustomEntity extends ZombieEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -102,12 +100,11 @@ public class MCreatorPinkfish extends Elementsnew_biome.ModElement {
 		@Override
 		protected void registerGoals() {
 			this.goalSelector.addGoal(1, new SwimGoal(this));
-			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, CreeperEntity.class, (float) 8, 1, 1.2));
-			this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.5, true));
-			this.targetSelector.addGoal(4, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
-			this.goalSelector.addGoal(5, new LeapAtTargetGoal(this, (float) 1.1));
-			this.goalSelector.addGoal(6, new PanicGoal(this, 2.5));
-			this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1));
+			this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.5, true));
+			this.targetSelector.addGoal(3, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.goalSelector.addGoal(4, new LeapAtTargetGoal(this, (float) 1.1));
+			this.goalSelector.addGoal(5, new PanicGoal(this, 2.5));
+			this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1));
 		}
 
 		@Override
@@ -165,16 +162,30 @@ public class MCreatorPinkfish extends Elementsnew_biome.ModElement {
 		}
 
 		@Override
+		public void onDeath(DamageSource source) {
+			super.onDeath(source);
+			int x = (int) this.posX;
+			int y = (int) this.posY;
+			int z = (int) this.posZ;
+			Entity entity = this;
+			{
+				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+				$_dependencies.put("entity", entity);
+				MCreatorPinkfishDeath.executeProcedure($_dependencies);
+			}
+		}
+
+		@Override
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
-				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0);
+				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(1);
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
 				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.9);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
-				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(4);
+				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(12);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) != null)
-				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
+				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2);
 		}
 
 		public void livingTick() {
@@ -184,7 +195,7 @@ public class MCreatorPinkfish extends Elementsnew_biome.ModElement {
 			int k = (int) this.posZ;
 			Random random = this.rand;
 			if (true)
-				for (int l = 0; l < 4; ++l) {
+				for (int l = 0; l < 2; ++l) {
 					double d0 = (i + random.nextFloat());
 					double d1 = (j + random.nextFloat());
 					double d2 = (k + random.nextFloat());

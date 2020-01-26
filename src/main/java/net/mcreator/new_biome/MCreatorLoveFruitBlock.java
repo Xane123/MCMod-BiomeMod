@@ -58,7 +58,8 @@ public class MCreatorLoveFruitBlock extends Elementsnew_biome.ModElement {
 
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0f, 2f).lightValue(0).doesNotBlockMovement());
+			super(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.5f, 2f).lightValue(0)
+					.doesNotBlockMovement());
 			setRegistryName("lovefruitblock");
 		}
 
@@ -135,7 +136,7 @@ public class MCreatorLoveFruitBlock extends Elementsnew_biome.ModElement {
 				if (blockAt.getBlock() == Blocks.DARK_OAK_LEAVES.getDefaultState().getBlock())
 					blockCriteria = true;
 				return blockCriteria;
-			}), block.getDefaultState(), 24), Placement.COUNT_RANGE, new CountRangeConfig(24, 0, 0, 256)));
+			}), block.getDefaultState(), 3), Placement.COUNT_RANGE, new CountRangeConfig(28, 64, 64, 144)));
 		}
 	}
 }

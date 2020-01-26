@@ -22,7 +22,7 @@
     "faceShape": "SOLID",
     "name": "Love Fruit Block",
     "specialInfo": [],
-    "hardness": 0.0,
+    "hardness": 0.5,
     "resistance": 2.0,
     "hasGravity": false,
     "creativeTab": {
@@ -104,9 +104,9 @@
         "value": "Blocks.LEAVES2#1"
       }
     ],
-    "frequencyPerChunks": 24,
-    "frequencyOnChunk": 24,
-    "minGenerateHeight": 0,
-    "maxGenerateHeight": 256
+    "frequencyPerChunks": 28,
+    "frequencyOnChunk": 3,
+    "minGenerateHeight": 64,
+    "maxGenerateHeight": 144
   }
 }
