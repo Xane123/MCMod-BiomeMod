@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_biome:blocks/dirt",
+    "up": "new_biome:blocks/grass-top",
+    "north": "new_biome:blocks/grass-side",
+    "east": "new_biome:blocks/grass-side",
+    "south": "new_biome:blocks/grass-side",
+    "west": "new_biome:blocks/grass-side",
+    "particle": "new_biome:blocks/dirt"
+  }
+}
