@@ -23,12 +23,14 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Direction;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.Blocks;
@@ -72,8 +74,18 @@ public class MCreatorLoveFruitBlock extends Elementsnew_biome.ModElement {
 		}
 
 		@Override
+		public boolean isFlammable(BlockState state, IBlockReader world, BlockPos pos, Direction face) {
+			return true;
+		}
+
+		@Override
 		public ItemStack getPickBlock(BlockState state, RayTraceResult target, IBlockReader world, BlockPos pos, PlayerEntity player) {
 			return new ItemStack(MCreatorLoveFruitItem.block, (int) (1));
+		}
+
+		@Override
+		public MaterialColor getMaterialColor(BlockState state, IBlockReader blockAccess, BlockPos pos) {
+			return MaterialColor.PINK;
 		}
 
 		@Override
@@ -123,7 +135,7 @@ public class MCreatorLoveFruitBlock extends Elementsnew_biome.ModElement {
 				if (blockAt.getBlock() == Blocks.DARK_OAK_LEAVES.getDefaultState().getBlock())
 					blockCriteria = true;
 				return blockCriteria;
-			}), block.getDefaultState(), 6), Placement.COUNT_RANGE, new CountRangeConfig(6, 48, 48, 96)));
+			}), block.getDefaultState(), 24), Placement.COUNT_RANGE, new CountRangeConfig(24, 0, 0, 256)));
 		}
 	}
 }

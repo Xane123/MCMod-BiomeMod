@@ -11,6 +11,7 @@
   "advancements.welcometocutezone.title": "Welcome to the Cute Zone!",
   "block.new_biome.twiliumore": "Twilium Ore",
   "item.new_biome.twiliumdust": "Twilium",
+  "entity.new_biome.pinkfish": "Girlworm",
   "item.new_biome.lovefruititem": "Love Fruit",
   "item.new_biome.twiliumpickaxe": "Twilium Pickaxe",
   "biome.new_biome.cutebiome": "Cute Area",
@@ -18,5 +19,6 @@
   "item.new_biome.twiliumshovel": "Twilium Shovel",
   "item.new_biome.cookedlovefruit": "Mushy Love Fruit",
   "item.new_biome.twiliumarmorbody": "Twilium Chestplate",
-  "block.new_biome.cutedirt": "Blue-rough Soil"
+  "block.new_biome.cutedirt": "Blue-rough Soil",
+  "item.new_biome.pinkfish": "Girlworm Spawn Egg"
 }

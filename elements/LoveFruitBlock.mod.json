@@ -38,14 +38,14 @@
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canProvidePower": false,
-    "lightOpacity": 248,
+    "lightOpacity": 0,
     "material": {
       "value": "PLANTS"
     },
     "tickRate": 10,
     "isReplaceable": false,
-    "isFlammable": false,
-    "colorOnMap": "DEFAULT",
+    "isFlammable": true,
+    "colorOnMap": "PINK",
     "creativePickItem": {
       "value": "CUSTOM:LoveFruitItem"
     },
@@ -104,9 +104,9 @@
         "value": "Blocks.LEAVES2#1"
       }
     ],
-    "frequencyPerChunks": 6,
-    "frequencyOnChunk": 6,
-    "minGenerateHeight": 48,
-    "maxGenerateHeight": 96
+    "frequencyPerChunks": 24,
+    "frequencyOnChunk": 24,
+    "minGenerateHeight": 0,
+    "maxGenerateHeight": 256
   }
 }

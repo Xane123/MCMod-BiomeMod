@@ -25,7 +25,7 @@ public class MCreatorLoveFruitItem extends Elementsnew_biome.ModElement {
 
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
-			super(new Item.Properties().group(null).maxStackSize(64)
+			super(new Item.Properties().group(null).maxStackSize(16)
 					.food((new Food.Builder()).hunger(8).saturation(0.2f).setAlwaysEdible().meat().build()));
 			setRegistryName("lovefruititem");
 		}

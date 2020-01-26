@@ -1,0 +1,37 @@
+{
+  "_fv": 5,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:TwiliumOre"
+      },
+      {
+        "value": "CUSTOM:TwiliumOreBlock"
+      },
+      {
+        "value": "CUSTOM:TwiliumDust"
+      },
+      {
+        "value": "CUSTOM:TwiliumPickaxe"
+      },
+      {
+        "value": "CUSTOM:TwiliumAxe"
+      },
+      {
+        "value": "CUSTOM:TwiliumSword"
+      },
+      {
+        "value": "CUSTOM:TwiliumShovel"
+      },
+      {
+        "value": "CUSTOM:TwiliumHoe"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "twilium",
+    "namespace": "forge"
+  }
+}

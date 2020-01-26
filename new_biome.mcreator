@@ -264,6 +264,7 @@
       "compiles": true,
       "locked_code": false,
       "ids": {},
+      "registry_name": "lovefruiteaten",
       "metadata": {
         "dependencies": [
           {
@@ -304,6 +305,7 @@
       "compiles": true,
       "locked_code": false,
       "ids": {},
+      "registry_name": "cookedlovefruiteaten",
       "metadata": {
         "dependencies": [
           {
@@ -317,6 +319,54 @@
       "name": "CookedLoveFruitRecipe",
       "type": "recipe",
       "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "Twilium",
+      "type": "tag",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "PinkfishStruckByLightning",
+      "type": "procedure",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "int"
+          },
+          {
+            "name": "y",
+            "type": "int"
+          },
+          {
+            "name": "z",
+            "type": "int"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Pinkfish",
+      "type": "mob",
+      "sortid": 34,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -338,6 +388,7 @@
       "advancements.welcometocutezone.title": "Welcome to the Cute Zone!",
       "block.new_biome.twiliumore": "Twilium Ore",
       "item.new_biome.twiliumdust": "Twilium",
+      "entity.new_biome.pinkfish": "Girlworm",
       "item.new_biome.lovefruititem": "Love Fruit",
       "item.new_biome.twiliumpickaxe": "Twilium Pickaxe",
       "biome.new_biome.cutebiome": "Cute Area",
@@ -345,7 +396,8 @@
       "item.new_biome.twiliumshovel": "Twilium Shovel",
       "item.new_biome.cookedlovefruit": "Mushy Love Fruit",
       "item.new_biome.twiliumarmorbody": "Twilium Chestplate",
-      "block.new_biome.cutedirt": "Blue-rough Soil"
+      "block.new_biome.cutedirt": "Blue-rough Soil",
+      "item.new_biome.pinkfish": "Girlworm Spawn Egg"
     }
   },
   "workspaceSettings": {

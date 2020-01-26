@@ -9,7 +9,7 @@
     "creativeTab": {
       "value": "No creative tab entry"
     },
-    "stackSize": 64,
+    "stackSize": 16,
     "nutritionalValue": 8,
     "saturation": 0.2,
     "eatingSpeed": 48,

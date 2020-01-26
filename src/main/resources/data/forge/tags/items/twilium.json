@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "new_biome:twiliumore",
+    "new_biome:twiliumoreblock",
+    "new_biome:twiliumdust",
+    "new_biome:twiliumpickaxe",
+    "new_biome:twiliumaxe",
+    "new_biome:twiliumsword",
+    "new_biome:twiliumshovel",
+    "new_biome:twiliumhoe"
+  ]
+}
