@@ -5,7 +5,6 @@ import net.minecraftforge.registries.ObjectHolder;
 import net.minecraft.world.World;
 import net.minecraft.item.UseAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.Food;
 import net.minecraft.entity.LivingEntity;
@@ -26,7 +25,7 @@ public class MCreatorLoveFruitItem extends Elementsnew_biome.ModElement {
 
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
-			super(new Item.Properties().group(ItemGroup.FOOD).maxStackSize(64)
+			super(new Item.Properties().group(null).maxStackSize(64)
 					.food((new Food.Builder()).hunger(8).saturation(0.2f).setAlwaysEdible().meat().build()));
 			setRegistryName("lovefruititem");
 		}
