@@ -1,0 +1,19 @@
+{
+  "_fv": 5,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Smelting",
+    "recipeRetstackSize": 0,
+    "recipeShapeless": false,
+    "smeltingInputStack": {
+      "value": "CUSTOM:LoveFruitItem"
+    },
+    "smeltingReturnStack": {
+      "value": "CUSTOM:CookedLoveFruit"
+    },
+    "smeltingXPReward": 1.125,
+    "smeltingRetstackSize": 1,
+    "name": "cookedlovefruitrecipe",
+    "namespace": "mod"
+  }
+}

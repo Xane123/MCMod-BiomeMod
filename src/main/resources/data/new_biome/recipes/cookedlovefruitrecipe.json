@@ -1,0 +1,11 @@
+{
+  "group": "new_biome",
+  "type": "minecraft:smelting",
+  "experience": 1.125,
+  "ingredient": {
+    "item": "new_biome:lovefruititem"
+  },
+  "result": {
+    "item": "new_biome:cookedlovefruit"
+  }
+}
