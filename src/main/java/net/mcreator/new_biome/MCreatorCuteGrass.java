@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.BlockState;
@@ -42,6 +43,11 @@ public class MCreatorCuteGrass extends Elementsnew_biome.ModElement {
 		}
 
 		@Override
+		public MaterialColor getMaterialColor(BlockState state, IBlockReader blockAccess, BlockPos pos) {
+			return MaterialColor.GRASS;
+		}
+
+		@Override
 		public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction direction, IPlantable plantable) {
 			return true;
 		}
@@ -51,7 +57,7 @@ public class MCreatorCuteGrass extends Elementsnew_biome.ModElement {
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
-			return Collections.singletonList(new ItemStack(this, 1));
+			return Collections.singletonList(new ItemStack(MCreatorCuteDirt.block, (int) (1)));
 		}
 	}
 }

@@ -2,20 +2,26 @@ package net.mcreator.new_biome;
 
 import net.minecraftforge.registries.ObjectHolder;
 import net.minecraftforge.common.ToolType;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.storage.loot.LootContext;
+import net.minecraft.world.World;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.Minecraft;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
+import java.util.Random;
 import java.util.List;
 import java.util.Collections;
 
@@ -53,6 +59,25 @@ public class MCreatorCuteDirt extends Elementsnew_biome.ModElement {
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
 			return Collections.singletonList(new ItemStack(this, 1));
+		}
+
+		@OnlyIn(Dist.CLIENT)
+		@Override
+		public void animateTick(BlockState state, World world, BlockPos pos, Random random) {
+			super.animateTick(state, world, pos, random);
+			PlayerEntity entity = Minecraft.getInstance().player;
+			int x = pos.getX();
+			int y = pos.getY();
+			int z = pos.getZ();
+			Block block = this;
+			{
+				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				MCreatorCuteDirtRandomTickUpdateEvent.executeProcedure($_dependencies);
+			}
 		}
 	}
 }
