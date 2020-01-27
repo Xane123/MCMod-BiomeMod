@@ -1,0 +1,163 @@
+{
+  "_fv": 5,
+  "_type": "mob",
+  "definition": {
+    "mobName": "Tiger-thing",
+    "mobLabel": "",
+    "mobModelTexture": "tiger-thing.png",
+    "mobModelName": "Cow",
+    "modelWidth": 0.9,
+    "modelHeight": 1.4,
+    "modelShadowSize": 0.675,
+    "armorBaseValue": 1.0,
+    "hasSpawnEgg": true,
+    "spawnEggBaseColor": {
+      "value": -26317,
+      "falpha": 0.0
+    },
+    "spawnEggDotColor": {
+      "value": -10079488,
+      "falpha": 0.0
+    },
+    "creativeTab": {
+      "value": "MISC"
+    },
+    "isBoss": false,
+    "bossBarColor": "PINK",
+    "bossBarType": "PROGRESS",
+    "equipmentMainHand": {
+      "value": ""
+    },
+    "equipmentOffHand": {
+      "value": ""
+    },
+    "equipmentHelmet": {
+      "value": ""
+    },
+    "equipmentBody": {
+      "value": ""
+    },
+    "equipmentLeggings": {
+      "value": ""
+    },
+    "equipmentBoots": {
+      "value": ""
+    },
+    "mobBehaviourType": "Mob",
+    "mobCreatureType": "UNDEFINED",
+    "attackStrength": 3,
+    "movementSpeed": 0.66,
+    "trackingRange": 72,
+    "health": 11,
+    "xpAmount": 15,
+    "waterMob": false,
+    "flyingMob": false,
+    "disableCollisions": false,
+    "ridable": true,
+    "canControlForward": false,
+    "canControlStrafe": true,
+    "immuneToFire": false,
+    "immuneToArrows": false,
+    "immuneToFallDamage": true,
+    "immuneToCactus": false,
+    "immuneToDrowning": false,
+    "immuneToLightning": false,
+    "immuneToPotions": false,
+    "immuneToPlayer": false,
+    "mobDrop": {
+      "value": "Items.BEEF"
+    },
+    "livingSound": {
+      "value": "entity.cat.hiss"
+    },
+    "hurtSound": {
+      "value": "entity.wither.hurt"
+    },
+    "deathSound": {
+      "value": "entity.wither.death"
+    },
+    "spawnParticles": false,
+    "particleToSpawn": {
+      "value": "SPIT"
+    },
+    "particleSpawningShape": "Plane",
+    "particleSpawningRadious": 0.25,
+    "particleAmount": 1,
+    "particleSpawningCondition": "ALWAYS",
+    "hasAI": true,
+    "aiBase": "Zombie",
+    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"swim_in_water\"><next><block type=\"leap_at_target\"><field name=\"speed\">1.1</field><next><block type=\"panic_when_attacked\"><field name=\"speed\">2.5</field><next><block type=\"attack_entity\"><field name=\"insight\">FALSE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPlayer</field><next><block type=\"attack_on_collide\"><field name=\"speed\">1.5</field><field name=\"longmemory\">TRUE</field><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><next><block type=\"wander\"><field name=\"speed\">1</field></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "breedable": false,
+    "breedTriggerItems": [],
+    "ranged": false,
+    "rangedAttackItem": {
+      "value": ""
+    },
+    "spawnThisMob": true,
+    "doesDespawnWhenIdle": true,
+    "spawningProbability": 60,
+    "mobSpawningType": "creature",
+    "minNumberOfMobsPerGroup": 8,
+    "maxNumberOfMobsPerGroup": 16,
+    "restrictionBiomes": [
+      {
+        "value": "CUSTOM:CuteBiome"
+      },
+      {
+        "value": "forest"
+      },
+      {
+        "value": "river"
+      },
+      {
+        "value": "forest_hills"
+      },
+      {
+        "value": "jungle"
+      },
+      {
+        "value": "jungle_hills"
+      },
+      {
+        "value": "jungle_edge"
+      },
+      {
+        "value": "birch_forest"
+      },
+      {
+        "value": "birch_forest_hills"
+      },
+      {
+        "value": "roofed_forest"
+      },
+      {
+        "value": "badlands"
+      },
+      {
+        "value": "mutated_plains"
+      },
+      {
+        "value": "mutated_forest"
+      },
+      {
+        "value": "mutated_jungle"
+      },
+      {
+        "value": "mutated_jungle_edge"
+      },
+      {
+        "value": "mutated_birch_forest"
+      },
+      {
+        "value": "mutated_birch_forest_hills"
+      },
+      {
+        "value": "mutated_roofed_forest"
+      },
+      {
+        "value": "mutated_extreme_hills_with_trees"
+      }
+    ],
+    "spawnInDungeons": false
+  }
+}

@@ -402,6 +402,22 @@
           }
         ]
       }
+    },
+    {
+      "name": "CuteEmeraldTemple",
+      "type": "structure",
+      "sortid": 38,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "JumpingAnimal",
+      "type": "mob",
+      "sortid": 39,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
     }
   ],
   "variable_elements": [],
@@ -419,8 +435,10 @@
       "item.new_biome.twiliumpickaxe": "Twilium Pickaxe",
       "block.new_biome.twiliumoreblock": "Block of Twilium",
       "item.new_biome.twiliumshovel": "Twilium Shovel",
+      "item.new_biome.jumpinganimal": "Tiger-thing Spawn Egg",
       "item.new_biome.cookedlovefruit": "Mushy Love Fruit",
       "item.new_biome.twiliumarmorbody": "Twilium Chestplate",
+      "entity.new_biome.jumpinganimal": "Tiger-thing",
       "block.new_biome.cutedirt": "Blue-rough Soil",
       "item.new_biome.pinkfish": "Girlworm Spawn Egg",
       "item.new_biome.twiliumaxe": "Twilium Axe",

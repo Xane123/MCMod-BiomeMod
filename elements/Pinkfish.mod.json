@@ -6,10 +6,10 @@
     "mobLabel": "",
     "mobModelTexture": "pinkfish.png",
     "mobModelName": "Silverfish",
-    "modelWidth": 0.4,
-    "modelHeight": 0.3,
-    "modelShadowSize": 0.5,
-    "armorBaseValue": 1.0,
+    "modelWidth": 0.6,
+    "modelHeight": 0.45,
+    "modelShadowSize": 0.675,
+    "armorBaseValue": 0.0,
     "hasSpawnEgg": true,
     "spawnEggBaseColor": {
       "value": -26164,
@@ -45,11 +45,11 @@
     },
     "mobBehaviourType": "Mob",
     "mobCreatureType": "UNDEFINED",
-    "attackStrength": 2,
-    "movementSpeed": 0.9,
+    "attackStrength": 1,
+    "movementSpeed": 0.66,
     "trackingRange": 56,
-    "health": 12,
-    "xpAmount": 3,
+    "health": 6,
+    "xpAmount": 15,
     "waterMob": false,
     "flyingMob": false,
     "disableCollisions": false,
@@ -68,21 +68,21 @@
       "value": ""
     },
     "livingSound": {
-      "value": "entity.slime.jump"
-    },
-    "hurtSound": {
       "value": "entity.donkey.death"
     },
+    "hurtSound": {
+      "value": "entity.llama.ambient"
+    },
     "deathSound": {
-      "value": "entity.panda.sneeze"
+      "value": "entity.llama.death"
     },
     "spawnParticles": true,
     "particleToSpawn": {
       "value": "SPIT"
     },
-    "particleSpawningShape": "Spread",
+    "particleSpawningShape": "Plane",
     "particleSpawningRadious": 0.25,
-    "particleAmount": 2,
+    "particleAmount": 1,
     "particleSpawningCondition": "ALWAYS",
     "onStruckByLightning": {
       "name": "PinkfishStruckByLightning"
@@ -91,8 +91,8 @@
       "name": "PinkfishDeath"
     },
     "hasAI": true,
-    "aiBase": "Zombie",
-    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"swim_in_water\"><next><block type=\"attack_on_collide\"><field name=\"speed\">1.5</field><field name=\"longmemory\">TRUE</field><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><next><block type=\"leap_at_target\"><field name=\"speed\">1.1</field><next><block type=\"panic_when_attacked\"><field name=\"speed\">2.5</field><next><block type=\"wander_avoid_water\"><field name=\"speed\">1</field></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "aiBase": "Spider",
+    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"swim_in_water\"><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">TRUE</field><field name=\"entity\">EntityVillager</field><next><block type=\"doors_open\"><next><block type=\"move_indoors\"><next><block type=\"panic_when_attacked\"><field name=\"speed\">2.5</field><next><block type=\"attack_entity\"><field name=\"insight\">FALSE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPlayer</field><next><block type=\"attack_on_collide\"><field name=\"speed\">1.25</field><field name=\"longmemory\">TRUE</field><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><next><block type=\"wander_avoid_water\"><field name=\"speed\">1</field></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
     "breedable": false,
     "breedTriggerItems": [],
     "ranged": false,
@@ -101,15 +101,15 @@
     },
     "spawnThisMob": true,
     "doesDespawnWhenIdle": true,
-    "spawningProbability": 14,
+    "spawningProbability": 40,
     "mobSpawningType": "ambient",
-    "minNumberOfMobsPerGroup": 2,
-    "maxNumberOfMobsPerGroup": 5,
+    "minNumberOfMobsPerGroup": 7,
+    "maxNumberOfMobsPerGroup": 14,
     "restrictionBiomes": [
       {
         "value": "CUSTOM:CuteBiome"
       }
     ],
-    "spawnInDungeons": true
+    "spawnInDungeons": false
   }
 }

@@ -1,0 +1,21 @@
+{
+  "_fv": 5,
+  "_type": "structure",
+  "definition": {
+    "structure": "emerald_temple",
+    "randomlyRotateStructure": true,
+    "surfaceDetectionType": "First block",
+    "spawnProbability": 12500,
+    "spawnLocation": "Ground",
+    "spawnHeightOffset": 1,
+    "spawnWorldTypes": [
+      "Surface"
+    ],
+    "restrictionBlocks": [],
+    "restrictionBiomes": [
+      {
+        "value": "CUSTOM:CuteBiome"
+      }
+    ]
+  }
+}

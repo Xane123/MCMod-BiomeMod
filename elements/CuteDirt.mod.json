@@ -79,6 +79,9 @@
     "onTickUpdate": {
       "name": "CuteDirtRandomTickUpdateEvent"
     },
+    "onRandomUpdateEvent": {
+      "name": "CuteDirtRandomTickUpdateEvent"
+    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
     "blocksToReplace": [

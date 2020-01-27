@@ -6,7 +6,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
@@ -20,13 +19,17 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
-import net.minecraft.entity.monster.ZombieEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.SpiderEntity;
+import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.PanicGoal;
+import net.minecraft.entity.ai.goal.OpenDoorGoal;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.ai.goal.MoveTowardsVillageGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.MobEntity;
@@ -52,7 +55,7 @@ public class MCreatorPinkfish extends Elementsnew_biome.ModElement {
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity> create(CustomEntity::new, EntityClassification.AMBIENT).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(56).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).immuneToFire().size(0.4f, 0.3f)).build(
+				.setTrackingRange(56).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).immuneToFire().size(0.6f, 0.45f)).build(
 				"pinkfish").setRegistryName("pinkfish");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -26164, -3394561, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("pinkfish"));
@@ -66,18 +69,17 @@ public class MCreatorPinkfish extends Elementsnew_biome.ModElement {
 				biomeCriteria = true;
 			if (!biomeCriteria)
 				continue;
-			biome.getSpawns(EntityClassification.AMBIENT).add(new Biome.SpawnListEntry(entity, 14, 2, 5));
+			biome.getSpawns(EntityClassification.AMBIENT).add(new Biome.SpawnListEntry(entity, 40, 7, 14));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS,
 				Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::func_223315_a);
-		DungeonHooks.addDungeonMob(entity, 180);
 	}
 
 	@SubscribeEvent
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(CustomEntity.class, renderManager -> {
-			MobRenderer customRender = new MobRenderer(renderManager, new SilverfishModel(), 0.5f) {
+			MobRenderer customRender = new MobRenderer(renderManager, new SilverfishModel(), 0.675f) {
 				protected ResourceLocation getEntityTexture(Entity entity) {
 					return new ResourceLocation("new_biome:textures/pinkfish.png");
 				}
@@ -86,25 +88,28 @@ public class MCreatorPinkfish extends Elementsnew_biome.ModElement {
 		});
 	}
 
-	public static class CustomEntity extends ZombieEntity {
+	public static class CustomEntity extends SpiderEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
 
 		public CustomEntity(EntityType<CustomEntity> type, World world) {
 			super(type, world);
-			experienceValue = 3;
+			experienceValue = 15;
 			setNoAI(false);
 		}
 
 		@Override
 		protected void registerGoals() {
 			this.goalSelector.addGoal(1, new SwimGoal(this));
-			this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.5, true));
-			this.targetSelector.addGoal(3, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
-			this.goalSelector.addGoal(4, new LeapAtTargetGoal(this, (float) 1.1));
+			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, VillagerEntity.class, true, true));
+			this.goalSelector.addGoal(3, new OpenDoorGoal(this, true));
+			this.goalSelector.addGoal(4, new MoveTowardsVillageGoal(this, 0.5));
 			this.goalSelector.addGoal(5, new PanicGoal(this, 2.5));
-			this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1));
+			this.targetSelector.addGoal(6, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
+			this.goalSelector.addGoal(7, new MeleeAttackGoal(this, 1.25, true));
+			this.targetSelector.addGoal(8, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.goalSelector.addGoal(9, new WaterAvoidingRandomWalkingGoal(this, 1));
 		}
 
 		@Override
@@ -118,17 +123,17 @@ public class MCreatorPinkfish extends Elementsnew_biome.ModElement {
 
 		@Override
 		public net.minecraft.util.SoundEvent getAmbientSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.slime.jump"));
-		}
-
-		@Override
-		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.donkey.death"));
 		}
 
 		@Override
+		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.llama.ambient"));
+		}
+
+		@Override
 		public net.minecraft.util.SoundEvent getDeathSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.panda.sneeze"));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.llama.death"));
 		}
 
 		@Override
@@ -179,13 +184,13 @@ public class MCreatorPinkfish extends Elementsnew_biome.ModElement {
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
-				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(1);
+				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0);
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
-				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.9);
+				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.66);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
-				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(12);
+				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(6);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) != null)
-				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2);
+				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
 		}
 
 		public void livingTick() {
@@ -195,15 +200,11 @@ public class MCreatorPinkfish extends Elementsnew_biome.ModElement {
 			int k = (int) this.posZ;
 			Random random = this.rand;
 			if (true)
-				for (int l = 0; l < 2; ++l) {
-					double d0 = (i + random.nextFloat());
-					double d1 = (j + random.nextFloat());
-					double d2 = (k + random.nextFloat());
-					int i1 = random.nextInt(2) * 2 - 1;
-					double d3 = (random.nextFloat() - 0.5D) * 0.25D;
-					double d4 = (random.nextFloat() - 0.5D) * 0.25D;
-					double d5 = (random.nextFloat() - 0.5D) * 0.25D;
-					world.addParticle(ParticleTypes.SPIT, d0, d1, d2, d3, d4, d5);
+				for (int l = 0; l < 1; ++l) {
+					double d0 = (i + 0.5) + (random.nextFloat() - 0.5) * 0.25D * 20;
+					double d1 = ((j + 0.7) + (random.nextFloat() - 0.5) * 0.25D) + 0.5;
+					double d2 = (k + 0.5) + (random.nextFloat() - 0.5) * 0.25D * 20;
+					world.addParticle(ParticleTypes.SPIT, d0 - 0.27, d1 + 0.22, d2, 0, 0, 0);
 				}
 		}
 	}

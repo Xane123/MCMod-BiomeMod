@@ -18,6 +18,6 @@ public class MCreatorCookedLoveFruitFoodEaten extends Elementsnew_biome.ModEleme
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		if (entity instanceof LivingEntity)
-			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 90, (int) 2, (false), (false)));
+			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 3200, (int) 3, (false), (false)));
 	}
 }
