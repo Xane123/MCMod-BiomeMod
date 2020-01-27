@@ -2,12 +2,12 @@
   "_fv": 5,
   "_type": "structure",
   "definition": {
-    "structure": "emerald_temple",
+    "structure": "cute_mobcreator",
     "randomlyRotateStructure": true,
     "surfaceDetectionType": "First block",
-    "spawnProbability": 8000,
+    "spawnProbability": 9000,
     "spawnLocation": "Ground",
-    "spawnHeightOffset": 1,
+    "spawnHeightOffset": -2,
     "spawnWorldTypes": [
       "Surface"
     ],
@@ -15,6 +15,15 @@
     "restrictionBiomes": [
       {
         "value": "CUSTOM:CuteBiome"
+      },
+      {
+        "value": "desert"
+      },
+      {
+        "value": "redwood_taiga"
+      },
+      {
+        "value": "savanna"
       }
     ]
   }

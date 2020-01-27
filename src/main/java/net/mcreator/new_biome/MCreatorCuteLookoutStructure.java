@@ -26,9 +26,9 @@ import net.minecraft.util.Mirror;
 import java.util.Random;
 
 @Elementsnew_biome.ModElement.Tag
-public class MCreatorCuteEmeraldTemple extends Elementsnew_biome.ModElement {
-	public MCreatorCuteEmeraldTemple(Elementsnew_biome instance) {
-		super(instance, 38);
+public class MCreatorCuteLookoutStructure extends Elementsnew_biome.ModElement {
+	public MCreatorCuteLookoutStructure(Elementsnew_biome instance) {
+		super(instance, 40);
 	}
 
 	@Override
@@ -44,18 +44,18 @@ public class MCreatorCuteEmeraldTemple extends Elementsnew_biome.ModElement {
 					dimensionCriteria = true;
 				if (!dimensionCriteria)
 					return false;
-				if ((random.nextInt(1000000) + 1) <= 8000) {
+				if ((random.nextInt(1000000) + 1) <= 11000) {
 					i += random.nextInt(16) + 8;
 					k += random.nextInt(16) + 8;
 					int j = iworld.getHeight(Heightmap.Type.WORLD_SURFACE_WG, i, k);
 					j -= 1;
 					Template template = ((ServerWorld) iworld.getWorld()).getSaveHandler().getStructureTemplateManager()
-							.getTemplateDefaulted(new ResourceLocation("new_biome", "emerald_temple"));
+							.getTemplateDefaulted(new ResourceLocation("new_biome", "lookout_cute"));
 					if (template == null)
 						return false;
 					Rotation rotation = Rotation.values()[random.nextInt(3)];
 					Mirror mirror = Mirror.values()[random.nextInt(2)];
-					BlockPos spawnTo = new BlockPos(i, j + 1, k);
+					BlockPos spawnTo = new BlockPos(i, j + -2, k);
 					template.addBlocksToWorldChunk(iworld, spawnTo, new PlacementSettings().setRotation(rotation).setRandom(random).setMirror(mirror)
 							.setChunk((ChunkPos) null).setIgnoreEntities(false));
 					return true;

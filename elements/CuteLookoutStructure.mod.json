@@ -2,12 +2,12 @@
   "_fv": 5,
   "_type": "structure",
   "definition": {
-    "structure": "emerald_temple",
+    "structure": "lookout_cute",
     "randomlyRotateStructure": true,
     "surfaceDetectionType": "First block",
-    "spawnProbability": 8000,
+    "spawnProbability": 11000,
     "spawnLocation": "Ground",
-    "spawnHeightOffset": 1,
+    "spawnHeightOffset": -2,
     "spawnWorldTypes": [
       "Surface"
     ],
