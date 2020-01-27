@@ -5,7 +5,7 @@
     "structure": "emerald_temple",
     "randomlyRotateStructure": true,
     "surfaceDetectionType": "First block",
-    "spawnProbability": 8000,
+    "spawnProbability": 4000,
     "spawnLocation": "Ground",
     "spawnHeightOffset": 1,
     "spawnWorldTypes": [

@@ -44,7 +44,7 @@ public class MCreatorCuteMobCreatorStructure extends Elementsnew_biome.ModElemen
 					dimensionCriteria = true;
 				if (!dimensionCriteria)
 					return false;
-				if ((random.nextInt(1000000) + 1) <= 9000) {
+				if ((random.nextInt(1000000) + 1) <= 15500) {
 					i += random.nextInt(16) + 8;
 					k += random.nextInt(16) + 8;
 					int j = iworld.getHeight(Heightmap.Type.WORLD_SURFACE_WG, i, k);

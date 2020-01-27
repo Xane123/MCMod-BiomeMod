@@ -44,7 +44,7 @@ public class MCreatorCuteLookoutStructure extends Elementsnew_biome.ModElement {
 					dimensionCriteria = true;
 				if (!dimensionCriteria)
 					return false;
-				if ((random.nextInt(1000000) + 1) <= 11000) {
+				if ((random.nextInt(1000000) + 1) <= 12000) {
 					i += random.nextInt(16) + 8;
 					k += random.nextInt(16) + 8;
 					int j = iworld.getHeight(Heightmap.Type.WORLD_SURFACE_WG, i, k);

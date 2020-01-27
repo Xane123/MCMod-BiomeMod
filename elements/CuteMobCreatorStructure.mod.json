@@ -5,7 +5,7 @@
     "structure": "cute_mobcreator",
     "randomlyRotateStructure": true,
     "surfaceDetectionType": "First block",
-    "spawnProbability": 9000,
+    "spawnProbability": 15500,
     "spawnLocation": "Ground",
     "spawnHeightOffset": -2,
     "spawnWorldTypes": [

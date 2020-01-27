@@ -5,7 +5,7 @@
     "structure": "lookout_cute",
     "randomlyRotateStructure": true,
     "surfaceDetectionType": "First block",
-    "spawnProbability": 11000,
+    "spawnProbability": 12000,
     "spawnLocation": "Ground",
     "spawnHeightOffset": -2,
     "spawnWorldTypes": [
