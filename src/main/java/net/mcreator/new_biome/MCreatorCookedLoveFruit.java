@@ -1,8 +1,6 @@
 package net.mcreator.new_biome;
 
 import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
 import net.minecraft.item.UseAction;
@@ -29,19 +27,8 @@ public class MCreatorCookedLoveFruit extends Elementsnew_biome.ModElement {
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(ItemGroup.FOOD).maxStackSize(16)
-					.food((new Food.Builder()).hunger(10).saturation(0.4f).setAlwaysEdible().meat().build()));
+					.food((new Food.Builder()).hunger(10).saturation(2f).setAlwaysEdible().meat().build()));
 			setRegistryName("cookedlovefruit");
-		}
-
-		@Override
-		public int getUseDuration(ItemStack stack) {
-			return 64;
-		}
-
-		@Override
-		@OnlyIn(Dist.CLIENT)
-		public boolean hasEffect(ItemStack itemstack) {
-			return true;
 		}
 
 		@Override

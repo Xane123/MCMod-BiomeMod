@@ -11,12 +11,12 @@
     },
     "stackSize": 16,
     "nutritionalValue": 10,
-    "saturation": 0.4,
-    "eatingSpeed": 64,
+    "saturation": 2.0,
+    "eatingSpeed": 32,
     "forDogs": true,
     "isAlwaysEdible": true,
     "animation": "eat",
-    "hasGlow": true,
+    "hasGlow": false,
     "onEaten": {
       "name": "CookedLoveFruitFoodEaten"
     }

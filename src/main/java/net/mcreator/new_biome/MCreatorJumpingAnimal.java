@@ -6,6 +6,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
@@ -13,10 +14,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Hand;
 import net.minecraft.util.DamageSource;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Items;
@@ -24,7 +22,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
@@ -34,7 +31,7 @@ import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
@@ -54,7 +51,7 @@ public class MCreatorJumpingAnimal extends Elementsnew_biome.ModElement {
 
 	@Override
 	public void initElements() {
-		entity = (EntityType.Builder.<CustomEntity> create(CustomEntity::new, EntityClassification.CREATURE).setShouldReceiveVelocityUpdates(true)
+		entity = (EntityType.Builder.<CustomEntity> create(CustomEntity::new, EntityClassification.AMBIENT).setShouldReceiveVelocityUpdates(true)
 				.setTrackingRange(72).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).size(0.9f, 1.4f)).build("jumpinganimal")
 				.setRegistryName("jumpinganimal");
 		elements.entities.add(() -> entity);
@@ -106,10 +103,11 @@ public class MCreatorJumpingAnimal extends Elementsnew_biome.ModElement {
 				biomeCriteria = true;
 			if (!biomeCriteria)
 				continue;
-			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(entity, 60, 8, 16));
+			biome.getSpawns(EntityClassification.AMBIENT).add(new Biome.SpawnListEntry(entity, 60, 8, 16));
 		}
-		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				AnimalEntity::func_223315_a);
+		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS,
+				Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::func_223315_a);
+		DungeonHooks.addDungeonMob(entity, 180);
 	}
 
 	@SubscribeEvent
@@ -184,17 +182,6 @@ public class MCreatorJumpingAnimal extends Elementsnew_biome.ModElement {
 		}
 
 		@Override
-		public boolean processInteract(PlayerEntity entity, Hand hand) {
-			super.processInteract(entity, hand);
-			entity.startRiding(this);
-			int x = (int) this.posX;
-			int y = (int) this.posY;
-			int z = (int) this.posZ;
-			ItemStack itemstack = entity.getHeldItem(hand);
-			return true;
-		}
-
-		@Override
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
@@ -205,39 +192,6 @@ public class MCreatorJumpingAnimal extends Elementsnew_biome.ModElement {
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(11);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) != null)
 				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3);
-		}
-
-		@Override
-		public void travel(Vec3d dir) {
-			Entity entity = this.getPassengers().isEmpty() ? null : (Entity) this.getPassengers().get(0);
-			if (this.isBeingRidden()) {
-				this.rotationYaw = entity.rotationYaw;
-				this.prevRotationYaw = this.rotationYaw;
-				this.rotationPitch = entity.rotationPitch * 0.5F;
-				this.setRotation(this.rotationYaw, this.rotationPitch);
-				this.jumpMovementFactor = this.getAIMoveSpeed() * 0.15F;
-				this.renderYawOffset = entity.rotationYaw;
-				this.rotationYawHead = entity.rotationYaw;
-				this.stepHeight = 1.0F;
-				if (entity instanceof LivingEntity) {
-					this.setAIMoveSpeed((float) this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getValue());
-					float forward = 0;
-					float strafe = ((LivingEntity) entity).moveStrafing;
-					super.travel(new Vec3d(strafe, 0, forward));
-				}
-				this.prevLimbSwingAmount = this.limbSwingAmount;
-				double d1 = this.posX - this.prevPosX;
-				double d0 = this.posZ - this.prevPosZ;
-				float f1 = MathHelper.sqrt(d1 * d1 + d0 * d0) * 4.0F;
-				if (f1 > 1.0F)
-					f1 = 1.0F;
-				this.limbSwingAmount += (f1 - this.limbSwingAmount) * 0.4F;
-				this.limbSwing += this.limbSwingAmount;
-				return;
-			}
-			this.stepHeight = 0.5F;
-			this.jumpMovementFactor = 0.02F;
-			super.travel(dir);
 		}
 	}
 }

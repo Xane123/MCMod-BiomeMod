@@ -53,9 +53,9 @@
     "waterMob": false,
     "flyingMob": false,
     "disableCollisions": false,
-    "ridable": true,
+    "ridable": false,
     "canControlForward": false,
-    "canControlStrafe": true,
+    "canControlStrafe": false,
     "immuneToFire": false,
     "immuneToArrows": false,
     "immuneToFallDamage": true,
@@ -96,7 +96,7 @@
     "spawnThisMob": true,
     "doesDespawnWhenIdle": true,
     "spawningProbability": 60,
-    "mobSpawningType": "creature",
+    "mobSpawningType": "ambient",
     "minNumberOfMobsPerGroup": 8,
     "maxNumberOfMobsPerGroup": 16,
     "restrictionBiomes": [
@@ -158,6 +158,6 @@
         "value": "mutated_extreme_hills_with_trees"
       }
     ],
-    "spawnInDungeons": false
+    "spawnInDungeons": true
   }
 }

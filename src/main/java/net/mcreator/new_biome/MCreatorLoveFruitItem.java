@@ -26,13 +26,13 @@ public class MCreatorLoveFruitItem extends Elementsnew_biome.ModElement {
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(null).maxStackSize(16)
-					.food((new Food.Builder()).hunger(8).saturation(0.2f).setAlwaysEdible().meat().build()));
+					.food((new Food.Builder()).hunger(8).saturation(1f).setAlwaysEdible().meat().build()));
 			setRegistryName("lovefruititem");
 		}
 
 		@Override
 		public int getUseDuration(ItemStack stack) {
-			return 48;
+			return 24;
 		}
 
 		@Override
